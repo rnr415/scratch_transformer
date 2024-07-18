@@ -23,6 +23,7 @@ The inputs $K$, $Q$ and $V$ are the same input embeddings multiplied by $M_K$, $
 #### Input Text Processing
 1. An input text is given
 2. Text is tokenized and converted to token based on the vocabulary
+   1. Tokenizer can be a separate implementation
 3. Each token is represented by the index in the Vocabulary
 4. Each Token has an embedding representation
 
@@ -38,9 +39,10 @@ input_embeddings = np.array(input_embedding_list)
 
 #### Embedding input to Transformer
 1. Each Token Embedding is transformed by $M_K$, $M_Q$ and $M_V$ respectively
+   1. Dimension of $M$ matrix is $(vec_size, vec_size)$
 2. We get a list of embeddings as $K$, $Q$ and $V$
 3. This is fed into the Self Attention Module to get the Attention Head Embedding
 
 ```
-
+input_embeddings . matrix_M_k
 ```
