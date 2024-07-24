@@ -4,11 +4,38 @@ Code the Transformer from scratch using only the standard libraries of Linear Al
 
 The Transformer library consists of multiple blocks:
 
-1. Self Attention Block
-2. Multi Head Attention Block
-3. Feed Forward Neural Network
-4. Residual Network
-5. Prediction Block
+1. Tokenizer
+   1. Vocabulary
+   2. Embeddings
+   3. Training the Tokenizer first or use Existing Tokenizer, but training embeddings
+2. Self Attention Block
+3. Multi Head Attention Block
+4. Feed Forward Neural Network
+5. Residual Network
+6. Prediction Block
+
+### Tokenizer
+
+
+#### Vocabulary
+
+Got code to get vocabulary from `https://github.com/huggingface/transformers/issues/1937`
+```
+import transformers
+from transformers import GPT2Tokenizer
+
+tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+vocab = list(tokenizer.encoder.keys())
+assert(len(vocab) == tokenizer.vocab_size) # it returns True!
+```
+
+#### Embeddings
+
+
+#### Training Embeddings
+
+
+
 
 ### Self Attention 
 

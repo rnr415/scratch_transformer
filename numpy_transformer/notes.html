@@ -143,12 +143,31 @@
 <p>Code the Transformer from scratch using only the standard libraries of Linear Algebra function</p>
 <p>The Transformer library consists of multiple blocks:</p>
 <ol>
+<li>Tokenizer
+<ol>
+<li>Vocabulary</li>
+<li>Embeddings</li>
+<li>Training the Tokenizer first or use Existing Tokenizer, but training embeddings</li>
+</ol>
+</li>
 <li>Self Attention Block</li>
 <li>Multi Head Attention Block</li>
 <li>Feed Forward Neural Network</li>
 <li>Residual Network</li>
 <li>Prediction Block</li>
 </ol>
+<h3 id="tokenizer">Tokenizer</h3>
+<h4 id="vocabulary">Vocabulary</h4>
+<p>Got code to get vocabulary from <code>https://github.com/huggingface/transformers/issues/1937</code></p>
+<pre><code>import transformers
+from transformers import GPT2Tokenizer
+
+tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+vocab = list(tokenizer.encoder.keys())
+assert(len(vocab) == tokenizer.vocab_size) # it returns True!
+</code></pre>
+<h4 id="embeddings">Embeddings</h4>
+<h4 id="training-embeddings">Training Embeddings</h4>
 <h3 id="self-attention">Self Attention</h3>
 <p>Equation 1:</p>
 <p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>a</mi><mi>t</mi><mi>t</mi><mi>n</mi><mo>=</mo><mi>s</mi><mi>o</mi><mi>f</mi><mi>t</mi><mi>m</mi><mi>a</mi><mi>x</mi><mrow><mo fence="true">(</mo><mfrac><mrow><mi>K</mi><mo>⋅</mo><msup><mi>Q</mi><mi>T</mi></msup></mrow><msqrt><mi>d</mi></msqrt></mfrac><mo>⋅</mo><mi>V</mi><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">attn = softmax \left( \frac{K \cdot Q^T}{\sqrt{d}} \cdot V \right) 
