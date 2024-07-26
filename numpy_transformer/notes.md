@@ -19,14 +19,19 @@ The Transformer library consists of multiple blocks:
 
 #### Vocabulary
 
-Got code to get vocabulary from `https://github.com/huggingface/transformers/issues/1937`
 ```
-import transformers
-from transformers import GPT2Tokenizer
+from transformers import AutoTokenizer
 
-tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
-vocab = list(tokenizer.encoder.keys())
-assert(len(vocab) == tokenizer.vocab_size) # it returns True!
+tokenizer_gemma = AutoTokenizer.from_pretrained("google/gemma-2b-it")
+
+vocab_gemma = list(tokenizer_gemma.vocab)
+
+print(f"Gemma vocab len - {len(vocab_gemma)}") 
+## prints 256000
+
+print(f"Gemma vocab - {vocab_gemma[-10:]}") 
+## prints - ['purposes', '▁Nineteen', 'Separ', '▁Lanes', 'leuk', '▁biss', '繹', \
+## '▁fortsetter', '▁detailing', '▁Thebes']
 ```
 
 #### Embeddings
